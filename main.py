@@ -1,5 +1,5 @@
 import flask
-from util.net import get_start_info
+from config import get_start_info
 
 app = flask.Flask(__name__)
 
