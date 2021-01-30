@@ -2,9 +2,16 @@ from util.url import get_touch_config_url
 from configparser import ConfigParser
 
 
-def get_start_info() -> tuple:
+def get_service_info():
     conf = ConfigParser()
     conf.read(get_touch_config_url())
-    host = conf.get("touch", "host")
-    port = conf.get("touch", "port")
+    host = conf.get("service", "host")
+    port = conf.get("service", "port")
     return host, port
+
+
+def get_pool_info():
+    conf = ConfigParser()
+    conf.read(get_touch_config_url())
+    size = conf.getint("pool", "size")
+    return size

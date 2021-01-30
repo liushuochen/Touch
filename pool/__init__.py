@@ -1,4 +1,6 @@
 import json
+from config import get_pool_info
+from errors import SizeLessThanZeroError
 
 
 class Pool(object):
@@ -26,4 +28,7 @@ class Pool(object):
 
 
 def create():
-    pass
+    size = get_pool_info()
+    if size <= 0:
+        raise SizeLessThanZeroError()
+    return Pool(size)
